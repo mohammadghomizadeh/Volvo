@@ -1,6 +1,27 @@
 <?php
-
 include('config/db.php');
+if(isset($_GET['action']))
+{
+    if($_GET['action'] == "edit")
+    {
+    
+      $art_id = $_GET['action'];
+      $arttitle = $_POST['articletitle'];
+      $artdescript = $_POST['editor1'];
+      $artcat = $_POST['category'];
+      $artimg = $_POST['articleimage'];
+      $r = $db->update("content", "`title`='$arttitle' ,`description` = '$artdescript' ,`image` = '$artimg' ,`parent` = '$artcat'","`id` = '$art_id '");
+      if($r)
+      {
+?>
+                      <script>
+                      window.location.replace("index.php?page=articles&action=list&id=0");
+                      </script>
+<?php
+      }
+    }
+}
+
 $id = $_GET['id'];
 $result = $db->select("content","`id` = $id");
 foreach($result as $rowarticle ){
@@ -106,25 +127,5 @@ foreach($result as $rowarticle ){
 </form>
 <?php
 }
-if(isset($_GET['action']))
-{
-    if($_GET['action'] == "edit")
-    {
-      include('config/db.php');
-      $art_id = $_GET['action'];
-      $arttitle = $_POST['articletitle'];
-      $artdescript = $_POST['editor1'];
-      $artcat = $_POST['category'];
-      $artimg = $_POST['articleimage'];
-      $r = $db->update("content", "`title`='$arttitle' ,`description` = '$artdescript' ,`image` = '$artimg' ,`parent` = '$artcat'","`id` = '$art_id '");
-      if($r)
-      {
-?>
-                      <script>
-                      window.location.replace("index.php?page=articles&action=list&id=0");
-                      </script>
-<?php
-      }
-    }
-}
+
 ?>
