@@ -1,27 +1,5 @@
 <?php
 include('config/db.php');
-if(isset($_GET['action']))
-{
-    if($_GET['action'] == "edit")
-    {
-    
-      $art_id = $_GET['action'];
-      $arttitle = $_POST['articletitle'];
-      $artdescript = $_POST['editor1'];
-      $artcat = $_POST['category'];
-      $artimg = $_POST['articleimage'];
-      $r = $db->update("content", "`title`='$arttitle' ,`description` = '$artdescript' ,`image` = '$artimg' ,`parent` = '$artcat'","`id` = '$art_id '");
-      if($r)
-      {
-?>
-                      <script>
-                      window.location.replace("index.php?page=articles&action=list&id=0");
-                      </script>
-<?php
-      }
-    }
-}
-
 $id = $_GET['id'];
 $result = $db->select("content","`id` = $id");
 foreach($result as $rowarticle ){
@@ -30,35 +8,23 @@ foreach($result as $rowarticle ){
               <h3 class="box-title">ویرایش مطلب</h3>
             </div>
             <hr>
-      <form method="POST" action="index.php?page=article-edit&action=edit&id=<?php echo $rowarticle['id'];  ?>" enctype="multipart/form-data">
+      <form method="POST" action="index.php?page=article-edit-save&id=<?php echo $rowarticle['id'];  ?>" enctype="multipart/form-data">
             <div class="form-group">
                   <label>عنوان مطلب</label>
                   <input type="text" class="form-control" placeholder="متن" name="articletitle" id="articletitle" value="<?php echo $rowarticle['title'];  ?>">
              </div>
               </div>
-              
               <div class="form-group">
-              <label>دسته بندی مقالات</label>
-                  <div class="checkbox">
-                  <?php
-                 
-                      $result = $db->select("content","`type` = 'category' AND `parent` = 100");
-                      foreach($result as $row)
-                      {
-                        ?>
-                      
-                  
-                    <label>
-                      <input type="checkbox" value="<?php echo $row['id'];  ?>" name="category">
-                      <?php echo $row['title'];  ?>
-                    </label>
-                          <?php
-                      }
-                      ?>
-                  </div>
-
-
-                </div>
+              <?php
+                  if($rowarticle['parent'] == 101){
+         ?>
+         <label>دسته بندی : مقالات سایت</label>
+         <input type="text" name="artcat" id="artcat"  value="<?php echo $rowarticle['parent']; ?>" disabled>
+         <?php
+                  }
+              ?>
+              </div>
+             
                 <hr>
                 
                 <div class="form-group">
@@ -71,17 +37,14 @@ foreach($result as $rowarticle ){
 
                   <label for="articleimage">تصویر مطلب</label>
 
-                  <input type="file"  name="articleimage" id="articleimage">
+                  
+                  <input type="file" name="articleimage" id="articleimage" /><img src="uploads/<?php echo $rowarticle['image']; ?>" width="150px" height="150px">
                   <p id="error1" style="display:none; color:#FF0000;">
                   خطا
                   </p>
                   <p id="error2" style="display:none; color:#FF0000;">
                   حجم بالاست
                   </p>
-                  <div class="text-left">
-                    <label for="articleimage">تصویر انتخاب شده </label>
-                    <img src="uploads/<?php echo $rowarticle['image'];?>" width="200" height="200" />
-                    </div>
                   <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'></script>
 
                         <script>
@@ -121,7 +84,7 @@ foreach($result as $rowarticle ){
                   <p class="help-block">تصاویر با کیفیت خوب و حجم پایین بارگزاری شود.باتشکر</p>
                 </div>
                 <div class="form-group">
-                <input class="btn bg-olive btn-flat margin" type="submit" value="ارسال مطلب"> 
+                <input class="btn bg-olive btn-flat margin" type="submit" value="ثبت تغییرات"> 
               </div>
               
 </form>
