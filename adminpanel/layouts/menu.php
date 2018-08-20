@@ -52,8 +52,7 @@
                         <ul class="treeview-menu">
                             <li><a href="index.php?page=articles&action=new"><i class="fa fa-circle-o"></i>مقاله جدید</a></li>
                             <li><a href="index.php?page=articles&action=list"><i class="fa fa-circle-o"></i>لیست مقالات</a></li>
-                            <li><a href="index.php?page=categores&action=new"><i class="fa fa-circle-o"></i>دسته بندی جدید</a></li>
-                            <li><a href="index.php?page=categores&action=list"><i class="fa fa-circle-o"></i>لیست دسته بندی مقالات</a></li>
+                            
                         </ul>
                     </li>
                      <li class="treeview">
@@ -65,8 +64,9 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>خدمات جدید</a></li>
-                            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>لیست خدمات</a></li>
+                            <li><a href="index.php?page=services&action=new"><i class="fa fa-circle-o"></i>خدمات جدید</a></li>
+                            <li><a href="index.php?page=services&action=list"><i class="fa fa-circle-o"></i>لیست خدمات</a></li>
+                            <li><a href="index.php?page=services&action=other"><i class="fa fa-circle-o"></i>خدمات دیگر</a></li>
                        </ul>
                     </li>
                     <li class="treeview">
