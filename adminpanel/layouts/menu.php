@@ -78,8 +78,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>افزودن تصویر </a></li>
-                            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>لیست گالری</a></li>
+                            <li><a href="index.php?page=gallery&action=new"><i class="fa fa-circle-o"></i>افزودن تصویر </a></li>
+                            <li><a href="index.php?page=gallery&action=list"><i class="fa fa-circle-o"></i>لیست گالری</a></li>
                        </ul>
                     </li>
                     <li class="treeview">
@@ -91,10 +91,10 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i>تنظیمات سایت </a></li>
-                            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>شبکه های اجتماعی</a></li>
-                            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>درباره ما</a></li>
-                            <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i>تماس با ما</a></li>
+                            <li><a href="index.php?page=setting&action=setting"><i class="fa fa-circle-o"></i>تنظیمات سایت </a></li>
+                            <li><a href="index.php?page=setting&action=social"><i class="fa fa-circle-o"></i>شبکه های اجتماعی</a></li>
+                            <li><a href="index.php?page=setting&action=aboutus"><i class="fa fa-circle-o"></i>درباره ما</a></li>
+                            <li><a href="index.php?page=setting&action=contactus"><i class="fa fa-circle-o"></i>تماس با ما</a></li>
                        </ul>
                     </li>
                     <li class="header">برچسب ها</li>

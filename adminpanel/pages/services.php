@@ -150,48 +150,42 @@ if($action == "new"){?>
 elseif($action == "other")
 {
 
-    include('config/db.php');
-    $result = $db->select("content","type = 'service'");
-   foreach($result as $row)
-   {
 ?>
 
-                        <form method="POST" action="index.php?page=services-other" enctype="multipart/form-data">
+                        <form method="POST" action="index.php?page=service-other" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label>درصد خدمات کاری</label>
                                         </div>
+    <?php
+                                        
+    include('config/db.php');
+    $result = $db->select("content","type = 'percent'");
+    $i = 1;
+   foreach($result as $rows)
+   {
+  ?>
                                         <div class="form-group">
-                                            <label>رضایت مشتریان</label>
-                                            <input type="text" class="form-control"  name="happycustomer" id="happycustomer" value="<?php echo $row['title'];  ?>">
+                                            <label><?php echo $rows['title'];  ?></label>
+                                            <input type="text" class="form-control"  name="<?php echo $rows['link'];  ?>" id="<?php echo $rows['link'];  ?>" value="<?php echo $rows['description'];  ?>">
                                         </div>
-                                        <div class="form-group">
-                                            <label>خودروهای تعمیر شده</label>
-                                            <input type="text" class="form-control"  name="doit" id="doit" value="<?php echo $row['title'];  ?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>خودروهای درحال تعمیر</label>
-                                            <input type="text" class="form-control"  name="doing" id="doing" value="<?php echo $row['title'];  ?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>امتیاز مشتریان</label>
-                                            <input type="text" class="form-control"  name="customerrate" id="customerrate" value="<?php echo $row['title'];  ?>">
-                                        </div>
+ <?php
+ $i++;
+   }
+   ?>
                                         <hr>
                                         <div class="form-group">
                                         <input class="btn bg-olive btn-flat margin" type="submit" id="submitpercent" name="submitpercent" value="ثبت"> 
                                         </div>
                         </form>
-<?php
-   }
-   ?>
+
                                         <hr>
                                         <?php
-                              include('config/db.php');
+                             
                               $result = $db->select("content","type = 'service'");
                              foreach($result as $row)
                              {
                                  ?>  
-                        <form method="POST" action="index.php?page=services-other&id=<?php echo $row['id'];  ?>">
+                        <form method="POST" action="index.php?page=service-other&id=<?php echo $row['id'];  ?>">
                 
                                         
                                         <div class="form-group">
