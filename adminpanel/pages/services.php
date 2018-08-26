@@ -68,17 +68,155 @@ if($action == "new"){?>
                                             <p class="help-block">تصاویر با کیفیت خوب و حجم پایین بارگزاری شود.باتشکر</p>
                                         </div>
                                         <div class="form-group">
-                                        <input class="btn bg-olive btn-flat margin" type="submit" value="ارسال مطلب"> 
+                                        <input class="btn bg-olive btn-flat margin" type="submit" id="submit" name="submit" value="ارسال مطلب"> 
                                         </div>
 
                         </form>
 <?php
 //End-Service-New Service
-}elseif($action == "list"){
+}elseif($action == "list"){?>
+<!--Start-List-Service-Block-->
 
-}elseif($action == "other"){
 
+                <div class="box">
+                <div class="box-header">
+                <h3 class="box-title">لیست خدمات سایت </h3>
 
+                <div class="box-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control pull-right" placeholder="جستجو">
+
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <!-- /.box-header -->
+
+                <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tbody><tr>
+                    <th>ردیف</th>
+                    <th>تصویر</th>
+                    <th>عنوان</th>
+                    <th>تاریخ</th>
+                    <th>وضعیت</th>
+                    
+                    <th>عملیات</th>
+                    </tr>
+                    <?php
+                    include('config/db.php');
+                    
+                    $results = $db->select("content","type = 'services'");
+                    $i = 1;
+                    foreach($results as $row)
+                    {
+
+                    ?>
+
+                    <tr>
+                    <td><?php echo $i; ?></td>
+                    <td><img src="uploads/services/<?php echo $row['image'];  ?>" width="20" height="20"/></td>
+                    <td><?php echo $row['title']; ?></td>
+                    <td><?php echo $row['create_at']; ?></td>
+                    <td><span class="label label-success"><?php echo $row['status']; ?></span></td>
+                    
+                    <td>
+                    
+                    <div class="btn-group">
+                        <button onclick="location.href = 'index.php?page=services-delete&id=<?php echo $row['id'];  ?>'"  type="button" class="btn btn-default btn-danger"><i class="fa fa-fw fa-remove" ></i></button>
+                        <button onclick="location.href = 'index.php?page=services-edit&id=<?php echo $row['id'];  ?>'" type="button" class="btn btn-default btn-success" ><i class="fa fa-edit"></i></button>
+                        <!--Start-Modal-Edit-->
+
+                <!--End-Modal-Edit-->
+
+                        </div>
+                    </td>
+                    </tr>
+                    <?php
+                    $i++;
+                    };
+                ?>
+                
+                    
+                </tbody></table>
+                </div>
+                <!-- /.box-body -->
+                </div>
+<!--End-Service-Part-List-->
+<?php
+}
+elseif($action == "other")
+{
+
+    include('config/db.php');
+    $result = $db->select("content","type = 'service'");
+   foreach($result as $row)
+   {
+?>
+
+                        <form method="POST" action="index.php?page=services-other" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>درصد خدمات کاری</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>رضایت مشتریان</label>
+                                            <input type="text" class="form-control"  name="happycustomer" id="happycustomer" value="<?php echo $row['title'];  ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>خودروهای تعمیر شده</label>
+                                            <input type="text" class="form-control"  name="doit" id="doit" value="<?php echo $row['title'];  ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>خودروهای درحال تعمیر</label>
+                                            <input type="text" class="form-control"  name="doing" id="doing" value="<?php echo $row['title'];  ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>امتیاز مشتریان</label>
+                                            <input type="text" class="form-control"  name="customerrate" id="customerrate" value="<?php echo $row['title'];  ?>">
+                                        </div>
+                                        <hr>
+                                        <div class="form-group">
+                                        <input class="btn bg-olive btn-flat margin" type="submit" id="submitpercent" name="submitpercent" value="ثبت"> 
+                                        </div>
+                        </form>
+<?php
+   }
+   ?>
+                                        <hr>
+                                        <?php
+                              include('config/db.php');
+                              $result = $db->select("content","type = 'service'");
+                             foreach($result as $row)
+                             {
+                                 ?>  
+                        <form method="POST" action="index.php?page=services-other&id=<?php echo $row['id'];  ?>">
+                
+                                        
+                                        <div class="form-group">
+                                            <label>خدمات میانی </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>عنوان </label>
+                                            <input type="text" class="form-control"  name="servicetitle" id="servicetitle" value="<?php echo $row['title'];  ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>متن</label>
+                                            <textarea id="editor1" name="editor1" rows="10" cols="80">
+                                            <?php echo $row['description'];  ?>
+                                            </textarea>
+                                        </div>
+                                       
+                                        <div class="form-group">
+                                        <input class="btn bg-olive btn-flat margin" type="submit" id="submitother" name="submitother" value="ثبت"> 
+                                        </div>
+
+                        </form>
+                      
+<?php
+   }  
 }else{
     echo "مقداری ارسال نشده است";
 }
+?>

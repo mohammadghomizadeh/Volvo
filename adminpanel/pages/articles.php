@@ -42,7 +42,7 @@ if(isset($_GET['action']))
               <h3 class="box-title">افزودن مطلب جدید</h3>
             </div>
             <hr>
-      <form method="POST" action="index.php?page=articles&action=insert" enctype="multipart/form-data">
+              <form method="POST" action="index.php?page=articles&action=insert" enctype="multipart/form-data">
             <div class="form-group">
                   <label>عنوان مطلب</label>
                   <input type="text" class="form-control" placeholder="متن" name="articletitle" id="articletitle">
