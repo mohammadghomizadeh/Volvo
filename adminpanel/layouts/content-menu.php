@@ -6,7 +6,7 @@
                             <div class="inner">
                                 <h3>150</h3>
 
-                                <p>سفارش جدید</p>
+                                <p>رضایت مشتریان</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
@@ -21,7 +21,7 @@
                             <div class="inner">
                                 <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                                <p>افزایش امتیاز</p>
+                                <p>خودروهای تعمیر شده</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
@@ -36,7 +36,7 @@
                             <div class="inner">
                                 <h3>44</h3>
 
-                                <p>کاربران ثبت شده</p>
+                                <p>خودروهای درحال تعمیر</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
@@ -51,7 +51,7 @@
                             <div class="inner">
                                 <h3>65</h3>
 
-                                <p>بازدید جدید</p>
+                                <p>امتیاز مشتریان</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-pie-graph"></i>

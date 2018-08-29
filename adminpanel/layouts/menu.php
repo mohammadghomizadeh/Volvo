@@ -3,7 +3,7 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-right image">
-                        <img src="_Content/Images/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="_Content/Images/esi.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-right info">
                         <p>علیرضا حسینی زاده</p>

@@ -26,7 +26,24 @@ if(isset($_GET['page']) && !empty($_GET['page']))
     include('pages/'. $page . '.php');
 }else
 {
-    echo "Page Not Font";
+?>
+<div class="box box-info">
+            <div class="box-header">
+              <i class="fa fa-info-circle"></i>
+              <h3 class="box-title">خوش آمدید آقای حسنی</h3>
+              <!-- tools box -->
+              <div class="pull-left box-tools">
+                <button type="button" class="btn bg-info btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+              <!-- /. tools -->
+            </div>
+            <div class="box-body">
+              <h5>از پنل سمت راست می توانید در سایت تغییرات لازم را اعمال کنید</h5>
+              <br><h5><b>تغییرات ظاهری را به پشتیبان سایتتان بسپارید</b></h5>
+              </div>
+          </div>
+<?php
 }
 
 

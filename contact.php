@@ -19,7 +19,19 @@
             <!-- MAIN NAVBAR -->
             <?php include('./layouts/menu.php'); ?>
             <!-- END MAIN NAVBAR -->
-            <?php include('./layouts/top-header.php'); ?>
+
+
+            <div class="pages-header">
+                <div class="section-heading">
+                    <div class="section">
+                        <div class="span-title">
+                            <h1>ارتباط با ما</h1>
+                            <div class="page-map"><p>خانه &nbsp;/&nbsp; تماس با ما</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- END MAIN HEADER -->
         </div>
         
@@ -28,9 +40,9 @@
        <div class="main">
             <div class="section">
                 <div class="section-title">
-                    <h2>GET IN TOUCH</h2>
+                    <h2>تماس با ما</h2>
                     <hr class="short">
-                    <p>At Autochoice we are here to help you, please contact us on the following form and one of our experts will contact you to answer your questions. Please be sure to correctly place your contact information and the time at which you wish to be contacted.</p>
+                    <p>لطفا نظرات پیشنهادات و پیامهای خود را برای ما ارسال کنید</p>
                 </div>
                 <div class="row">
                   
@@ -39,24 +51,58 @@
                       <div class="address-box">
                         <div class="icon-circle"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
                          <div class="address-info">
-                          <h5>Address</h5>
-                          <p>1415 Woodlawn Ave. Buffalo New York, USA 10451.</p>
+                          <h5>آدرس</h5>
+
+                             <?php
+
+                             $radd = $db->select("content","`type` = 'address'");
+                             foreach($radd as $roadd)
+                             {
+                                 ?>
+                                 <p> <?php echo $roadd['description'];  ?></p>
+                             <?php } ?>
                          </div>
                       </div>
                         
                       <div class="address-box">
                         <div class="icon-circle"><i class="fa fa-phone" aria-hidden="true"></i></div>
                          <div class="address-info">
-                          <h5>Phone</h5>
-                          <p>212-869-3323</p>
+                          <h5>تلفن</h5>
+                             <?php
+                             $rtel = $db->select("content","`type` = 'telephone'");
+                             foreach($rtel as $rowtel)
+                             {
+                                 ?>
+                                 <p><?php echo $rowtel['description'];  ?></p>
+                             <?php } ?>
                          </div>
                       </div>
+                        <div class="address-box">
+                            <div class="icon-circle"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                            <div class="address-info">
+                                <h5>همراه</h5>
+                                <?php
+
+                                $rph = $db->select("content","`type` = 'phone'");
+                                foreach($rph as $rowph)
+                                {
+                                    ?>
+                                    <p><?php echo $rowph['description'];  ?></p>
+                                <?php } ?>
+                            </div>
+                        </div>
                      
                       <div class="address-box">
                         <div class="icon-circle"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                         <div class="address-info">
-                          <h5>Email</h5>
-                          <p>support@industrial.com</p>
+                          <h5>پست الکترونیکی</h5>
+                            <?php
+                            $rem = $db->select("content","`type` = 'email'");
+                            foreach($rem as $rowem)
+                            {
+                                ?>
+                                <p><?php echo $rowem['description'];  ?></p>
+                            <?php }?>
                          </div>
                       </div>
                     </div>
@@ -69,7 +115,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input id="form_name" type="text" name="name" class="form-control customize" placeholder="Name" required="required" data-error="Firstname is required.">
+                                            <input id="form_name" type="text" name="name" class="form-control customize" placeholder="نام و نام خانوادگی" required="required" data-error="Firstname is required.">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -77,7 +123,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input id="form_email" type="email" name="email" class="form-control customize" placeholder="Email address" required="required" data-error="Valid email is required.">
+                                            <input id="form_email" type="email" name="email" class="form-control customize" placeholder="پست الکترونیکی" required="required" data-error="Valid email is required.">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -85,7 +131,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <input id="form_phone" type="tel" name="phone" class="form-control customize" placeholder="Please enter your phone">
+                                            <input id="form_phone" type="tel" name="phone" class="form-control customize" placeholder="تلفن همراه">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -93,12 +139,12 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <textarea id="form_message" name="message" class="form-control customize" placeholder="Your message" rows="6" required="required" data-error="Please,leave us a message."></textarea>
+                                            <textarea id="form_message" name="message" class="form-control customize" placeholder="متن پیام" rows="6" required="required" data-error="Please,leave us a message."></textarea>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <p><input type="submit" class="btn btn-warning" value="Send message"></p>
+                                        <p><input type="submit" class="btn btn-warning" value="ارسال پیام"></p>
                                     </div>
                                 </div>
                             </div>

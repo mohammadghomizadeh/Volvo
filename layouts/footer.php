@@ -1,4 +1,5 @@
-﻿<div class="main-footer">
+﻿
+<div class="main-footer">
         <div class="main">
             <div class="content">
                 <div class="section">
@@ -57,22 +58,48 @@
                             <div class="footer-location">
                                 <div class="location-fa"><i class="fa fa-location-arrow" aria-hidden="true"></i></div>
                                 <div class="location-info">
-                                    <p>  بزرگراه فتح , شیرپاستوریزه ,  خیابان غفاری پلاک 16</p>
+                                    <?php
+
+                                    $radd = $db->select("content","`type` = 'address'");
+                                    foreach($radd as $roadd)
+                                    {
+                                    ?>
+                                    <p> <?php echo $roadd['description'];  ?></p>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="footer-location">
                                 <div class="location-fa"><i class="fa fa-phone" aria-hidden="true"></i></div>
                                 <div class="location-info">
-                                    <p>02166252095</p>
+                                    <?php
+                                    $rtel = $db->select("content","`type` = 'telephone'");
+                                    foreach($rtel as $rowtel)
+                                    {
+                                    ?>
+                                    <p><?php echo $rowtel['description'];  ?></p>
+                                    <?php } ?>
                                 </div>
                                 <div class="location-info">
-                                    <p>09193232935</p>
+                                    <?php
+
+                                    $rph = $db->select("content","`type` = 'phone'");
+                                    foreach($rph as $rowph)
+                                    {
+                                        ?>
+                                        <p><?php echo $rowph['description'];  ?></p>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <div class="footer-location">
                                 <div class="location-fa"><i class="fa fa-envelope" aria-hidden="true"></i></div>
                                 <div class="location-info">
-                                    <p>info@esi-montecarlo.com</p>
+                                    <?php
+                                    $rem = $db->select("content","`type` = 'email'");
+                                    foreach($rem as $rowem)
+                                    {
+                                    ?>
+                                    <p><?php echo $rowem['description'];  ?></p>
+                                    <?php }?>
                                 </div>
 
                             </div>
@@ -102,7 +129,17 @@
                                 </div>
                                 <div class="social-items">
                                     <a href="#">
-                                        <div class="icon-fa"><i class="fa fa-youtube-play" aria-hidden="true"></i></div>
+                                        <div class="icon-fa"><i class="fa fa-telegram" aria-hidden="true"></i></div>
+                                    </a>
+                                </div>
+                                <div class="social-items">
+                                    <a href="#">
+                                        <div class="icon-fa"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                                    </a>
+                                </div>
+                                <div class="social-items">
+                                    <a href="#">
+                                        <div class="icon-fa"><i class="fa fa-google-plus" aria-hidden="true"></i></div>
                                     </a>
                                 </div>
                             </div>

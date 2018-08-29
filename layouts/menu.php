@@ -21,20 +21,49 @@
                                 </div>
                                 <div class="header-items no-margin">
                                     <a href="#">
-                                        <p><i class="fa fa-youtube-play" aria-hidden="true"></i></p>
+                                        <p><i class="fa fa-telegram" aria-hidden="true"></i></p>
+                                    </a>
+                                </div>
+                                <div class="header-items no-margin">
+                                    <a href="#">
+                                        <p><i class="fa fa-linkedin" aria-hidden="true"></i></p>
+                                    </a>
+                                </div>
+                                <div class="header-items no-margin">
+                                    <a href="#">
+                                        <p><i class="fa fa-google-plus" aria-hidden="true"></i></p>
                                     </a>
                                 </div>
                             </div>
                             <div class="rightside">
                             <div class="header-items">
-                                    <p><i class="fa fa-phone" aria-hidden="true"></i>&nbsp; تلفن تماس : 021123456789</p>
+                                <?php
+
+                                $rtel = $db->select("content","`type` = 'telephone'");
+                                foreach($rtel as $rowtel)
+                                {
+                                ?>
+                                    <p><i class="fa fa-phone" aria-hidden="true"></i>&nbsp; تلفن تماس : <?php echo $rowtel['description'];  ?></p>
+                                <?php } ?>
                                 </div>
                                 <div class="header-items">
-                                    <p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp; پست الکترونیکی : info@esi-montecarlo.com</p>
+                                    <?php
+                                    $rem = $db->select("content","`type` = 'email'");
+                                    foreach($rem as $rowem)
+                                    {
+                                    ?>
+                                    <p><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp; پست الکترونیکی : <?php echo $rowem['description'];  ?></p>
+                                    <?php } ?>
                                 </div>
 
                                 <div class="header-items">
-                                    <p><i class="fa fa-location-arrow" aria-hidden="true"></i>&nbsp; آدرس : بزرگراه فتح - شیر پاستوریزه</p>
+                                     <?php
+                                     $radd = $db->select("content","`type` = 'address'");
+                                     foreach($radd as $roadd)
+                                     {
+                                         ?>
+                                    <p><i class="fa fa-location-arrow" aria-hidden="true"></i>&nbsp; آدرس : <?php echo $roadd['description'];  ?></p>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>

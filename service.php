@@ -19,7 +19,19 @@
             <!-- MAIN NAVBAR -->
             <?php include('./layouts/menu.php'); ?>
             <!-- END MAIN NAVBAR -->
-            <?php include('./layouts/top-header.php'); ?>
+
+
+            <div class="pages-header">
+                <div class="section-heading">
+                    <div class="section">
+                        <div class="span-title">
+                            <h1>خدمات ما</h1>
+                            <div class="page-map"><p>خانه &nbsp;/&nbsp; خدمات ما</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- END MAIN HEADER -->
         </div>
         
@@ -80,40 +92,63 @@
             <div class="section">
                 <div class="row">
                   <div class="col-sm-3 col-md-3">
+                      <?php
+                      $rph = $db->select("content","`link` = 'doing'");
+                      foreach($rph as $rowph){
+                        ?>
                       <circle-counter>
                           <div class="counter-icon">
                             <i class="fa fa-car" aria-hidden="true"></i>
                           </div>
-                          <span class="counter circle">2899</span>
-                          <h4>CARS IN STOCK</h4>
+                          <span class="counter circle"><?php echo $rowph['description']; ?></span>
+                          <h4><?php echo $rowph['title']; ?></h4>
                       </circle-counter>
+                      <?php
+                      }
+                      ?>
+
                     </div>
                   <div class="col-sm-3 col-md-3">
+                      <?php
+                      $rph = $db->select("content","`link` = 'doit'");
+                      foreach($rph as $rowph){
+                      ?>
                       <circle-counter>
                           <div class="counter-icon">
                             <i class="fa fa-flag-checkered" aria-hidden="true"></i>
                           </div>
-                          <span class="counter circle">233</span>
-                          <h4>OFFICE DEALER</h4>
+                          <span class="counter circle"><?php echo $rowph['description']; ?></span>
+                          <h4><?php echo $rowph['title']; ?></h4>
                       </circle-counter>
+                      <?php } ?>
                     </div>
                   <div class="col-sm-3 col-md-3">
+                      <?php
+                      $rph = $db->select("content","`link` = 'rate'");
+                      foreach($rph as $rowph){
+                      ?>
                       <circle-counter>
                           <div class="counter-icon">
                             <i class="fa fa-trophy" aria-hidden="true"></i>
                           </div>
-                          <span class="counter circle">321</span>
-                          <h4>AWARDS</h4>
+                          <span class="counter circle"><?php echo $rowph['description']; ?></span>
+                          <h4><?php echo $rowph['title']; ?></h4>
                       </circle-counter>
+                      <?php } ?>
                     </div>
                   <div class="col-sm-3 col-md-3">
+                      <?php
+                      $rph = $db->select("content","`link` = 'happycustomer'");
+                      foreach($rph as $rowph){
+                      ?>
                       <circle-counter>
                           <div class="counter-icon">
                             <i class="fa fa-smile-o" aria-hidden="true"></i>
                           </div>
-                          <span class="counter circle">1322</span>
-                          <h4>HAPPY CUSTOMERS</h4>
+                          <span class="counter circle"><?php echo $rowph['description']; ?></span>
+                          <h4><?php echo $rowph['title']; ?></h4>
                       </circle-counter>
+                      <?php } ?>
                     </div>
                 </div>
             </div>
@@ -125,10 +160,18 @@
                   <div class="col-md-6"><div class="inspection-car"><img src="./theme/img/images/autos/image25.png" alt=""></div></div>
                   <div class="col-md-6">
                     <div class="inspection-information">
-                        <h3><span>200-point</span> Inspection Report</h3> 
-                        <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will</p>
-                        
-                        <p>which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure</p>
+                        <h3>خدمات تعمیرگاه ولوو :</h3>
+                        <p>
+                            تعمیر موتور
+                            تعمیر گیربکس اتومات
+                            تعمیر ایربگ ( کیسه هوای جانبی و پرده ای ) خودروهای ولوو
+                            تعمیر کمربند ( سه نقطه ای به همراه پیش کشنده ) ولوو
+                            تعمیر قفل درب ها
+                            تعمیر ایرادات برقی و تمام سیستم های صوتی و ناوبری خودروهای ولوو
+                            تعمیرات سیستم های ترمز و پایداری ABS – EBD – EBA – DSTC – ترمز دستی الکترونیکی خودروهای ولوو
+                            تعمیر سیستم های کروز کنترل هوشمند، تنظیم کننده آینه های جانبی، گرمکن صندلی ها، کنترل کشش و پایداری دینامیکی، کنترل سرعت در سراشیبی، پارک اتوماتیک، تهویه ۴ گانه، سقف پانوراما و …
+
+                        </p>
                     </div> 
                   </div>
                 </div>
@@ -144,7 +187,7 @@
                         <div class="inspection-items">
                             <div class="inspection-icon"><img src="./theme/img/master/icons/engine.png" alt=""></div>
                             <div class="inspection-name">
-                                <h6>Engine</h6>
+                                <h6>موتور</h6>
                             </div>
                         </div>
                     </div>
@@ -152,7 +195,7 @@
                         <div class="inspection-items">
                             <div class="inspection-icon"><img src="./theme/img/master/icons/dashboard.png" alt=""></div>
                             <div class="inspection-name">
-                                <h6>Dashboard</h6>
+                                <h6>داشبورد</h6>
                             </div>
                         </div>
                     </div>
@@ -160,7 +203,7 @@
                         <div class="inspection-items">
                             <div class="inspection-icon"><img src="./theme/img/master/icons/battery.png" alt=""></div>
                             <div class="inspection-name">
-                                <h6>Battery</h6>
+                                <h6>باطری</h6>
                             </div>
                         </div>
                     </div>
@@ -168,7 +211,7 @@
                         <div class="inspection-items">
                             <div class="inspection-icon"><img src="./theme/img/master/icons/termperture.png" alt=""></div>
                             <div class="inspection-name">
-                                <h6>Temperature</h6>
+                                <h6>ترموستات</h6>
                             </div>
                         </div>
                     </div>
@@ -176,7 +219,7 @@
                         <div class="inspection-items">
                             <div class="inspection-icon"><img src="./theme/img/master/icons/breaks.png" alt=""></div>
                             <div class="inspection-name">
-                                <h6>Breaks</h6>
+                                <h6>ترمز</h6>
                             </div>
                         </div>
                     </div>
@@ -184,7 +227,7 @@
                         <div class="inspection-items">
                             <div class="inspection-icon"><img src="./theme/img/master/icons/transmition.png" alt=""></div>
                             <div class="inspection-name">
-                                <h6>Transmition</h6>
+                                <h6>گیربکس</h6>
                             </div>
                         </div>
                     </div>
@@ -192,38 +235,7 @@
             </div>
         </div>
         
-        <div class="main-full">
-            <div class="row">
-              <div class="col-md-3 panels-1">
-                <div class="panel-info">
-                  <div class="panel-img"><img src="./theme/img/master/icons/medal.png" alt=""></div>
-                  <h5>Top Dealer Award</h5>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority.</p>
-                </div>
-              </div>
-              <div class="col-md-3 panels-2">
-                <div class="panel-info">
-                  <div class="panel-img"><img src="./theme/img/master/icons/award.png" alt=""></div>
-                  <h5>Best Selling Dealer</h5>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority.</p>
-                </div>
-              </div>
-              <div class="col-md-3 panels-3">
-                <div class="panel-info">
-                  <div class="panel-img"><img src="./theme/img/master/icons/award-2.png" alt=""></div>
-                  <h5>Best Customer Service</h5>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority.</p>
-                </div>
-              </div>
-              <div class="col-md-3 panels-4">
-                <div class="panel-info">
-                  <div class="panel-img"><img src="./theme/img/master/icons/award-3.png" alt=""></div>
-                  <h5>Best Dealer Award</h5>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority.</p>
-                </div>
-              </div>
-            </div>
-        </div>
+
         
        <!--End-main-service-->
 

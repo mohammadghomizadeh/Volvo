@@ -38,7 +38,7 @@ foreach($result as $rowarticle ){
                   <label for="articleimage">تصویر مطلب</label>
 
                   
-                  <input type="file" name="articleimage" id="articleimage" /><img src="uploads/<?php echo $rowarticle['image']; ?>" width="150px" height="150px">
+                  <input type="file" name="articleimage" id="articleimage" /><img src="uploads/articles/<?php echo $rowarticle['image']; ?>" width="150px" height="150px">
                   <p id="error1" style="display:none; color:#FF0000;">
                   خطا
                   </p>

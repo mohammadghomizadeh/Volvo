@@ -12,7 +12,7 @@
                          if(!empty($_FILES['articleimage']['name']))
                          {
                             $artimg = $_FILES['articleimage']['name'];
-                            $uploaddir = 'uploads/';
+                            $uploaddir = 'uploads/articles/';
                             $uploadfile = $uploaddir . basename($_FILES['articleimage']['name']);
                             move_uploaded_file($_FILES['articleimage']['tmp_name'], $uploadfile);
                             $r = $db->run("UPDATE `content` SET 

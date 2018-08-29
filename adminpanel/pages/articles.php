@@ -9,7 +9,7 @@ if(isset($_GET['action']))
               $categoryid = $_POST['category'];
               $articledescription = $_POST['editor1'];
               $articleimage = $_FILES['articleimage']['name'];
-              $uploaddir = 'uploads/';
+              $uploaddir = 'uploads/articles/';
               $uploadfile = $uploaddir . basename($_FILES['articleimage']['name']);
               move_uploaded_file($_FILES['articleimage']['tmp_name'], $uploadfile);
               include('config/db.php');
@@ -180,7 +180,7 @@ if(isset($_GET['action']))
         
               <tr>
                 <td><?php echo $i; ?></td>
-                <td><img src="uploads/<?php echo $row['image'];  ?>" width="20" height="20"/></td>
+                <td><img src="uploads/articles/<?php echo $row['image'];  ?>" width="20" height="20"/></td>
                 <td><?php echo $row['title']; ?></td>
                 <td><?php echo $row['create_at']; ?></td>
                 <td><span class="label label-success"><?php echo $row['status']; ?></span></td>
