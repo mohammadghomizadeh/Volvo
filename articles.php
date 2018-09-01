@@ -43,7 +43,32 @@
                 <div class="row">
 
                   <div class="col-md-12">
+
                       <?php
+
+                      function substrwords($text, $maxchar, $end='...') {
+                          if (strlen($text) > $maxchar || $text == '') {
+                              $words = preg_split('/\s/', $text);
+                              $output = '';
+                              $i      = 0;
+                              while (1) {
+                                  $length = strlen($output)+strlen($words[$i]);
+                                  if ($length > $maxchar) {
+                                      break;
+                                  }
+                                  else {
+                                      $output .= " " . $words[$i];
+                                      ++$i;
+                                  }
+                              }
+                              $output .= $end;
+                          }
+                          else {
+                              $output = $text;
+                          }
+                          return $output;
+                      }
+
                       $rph = $db->select("content","`type` = 'articles'");
                       foreach($rph as $row){
                             ?>
@@ -54,78 +79,23 @@
                                 <div class="post-details">
                                     <h5 class="post-title"><?php echo  $row['title']; ?></h5>
                                     <p class="post-text">
-                                        <?php echo  substr($row['description'],0,200); ?>
+                                        <?php echo  substrwords($row['description'],800); ?>
                                     </p>
                                     <p class="author">تاریخ : <?php echo  $row['create_at']; ?></p>
                                     <p>
-                                        <button type="submit" class="btn btn-warning">ادامه مطلب</button>
+                                        <a href="article-single.php?id=<?php echo  $row['id']; ?>" class="btn btn-warning">ادامه مطلب</a>
                                     </p>
                                 </div>
                             </div>
-                            <hr class="line-post">
+                          <div class="clearfix"></div>
+                          <hr class="line-post">
                             <?php
                         }
                       ?>
-                      <div class="post-preview">
-                        <div class="photo-preview"><img src="./theme/img/images/blog/post-preview-2.jpg" alt=""></div>
-                         <div class="post-details">
-                            <h5 class="post-title">The most anticipated cars on 2018</h5>
-                             <p class="post-text">
-                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-                             </p>
-                             <p class="author">By John Doe on November 29, 2017 10:47 AM</p>
-                             <p><button type="button" class="btn btn-warning">Read More</button></p>
-                         </div>
-                      </div>
-                      <hr class="line-post">
-                      <div class="post-preview">
-                        <div class="photo-preview"><img src="./theme/img/images/blog/post-preview-3.jpg" alt=""></div>
-                         <div class="post-details">
-                            <h5 class="post-title">Cars you should buy for 2018</h5>
-                             <p class="post-text">
-                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-                             </p>
-                             <p class="author">By John Doe on November 29, 2017 10:47 AM</p>
-                             <p><button type="button" class="btn btn-warning">Read More</button></p>
-                         </div>
-                      </div>
-                      <hr class="line-post">
-                      <div class="post-preview">
-                        <div class="photo-preview"><img src="./theme/img/images/blog/post-preview-4.jpg" alt=""></div>
-                         <div class="post-details">
-                            <h5 class="post-title">Meet the best car of the year</h5>
-                             <p class="post-text">
-                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-                             </p>
-                             <p class="author">By John Doe on November 29, 2017 10:47 AM</p>
-                             <p><button type="button" class="btn btn-warning">Read More</button></p>
-                         </div>
-                      </div>
-                      <hr class="line-post">
-                      <div class="post-preview">
-                        <div class="photo-preview"><img src="./theme/img/images/blog/post-preview-5.jpg" alt=""></div>
-                         <div class="post-details">
-                            <h5 class="post-title">The best sports cars of 2017</h5>
-                             <p class="post-text">
-                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-                             </p>
-                             <p class="author">By John Doe on November 29, 2017 10:47 AM</p>
-                             <p><button type="button" class="btn btn-warning">Read More</button></p>
-                         </div>
-                      </div>
-                      <hr class="line-post">
-                      <div class="post-preview">
-                        <div class="photo-preview"><img src="./theme/img/images/blog/post-preview-6.jpg" alt=""></div>
-                         <div class="post-details">
-                            <h5 class="post-title">The best rated sports cars</h5>
-                             <p class="post-text">
-                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-                             </p>
-                             <p class="author">By John Doe on November 29, 2017 10:47 AM</p>
-                             <p><button type="button" class="btn btn-warning">Read More</button></p>
-                         </div>
-                      </div>
-                      <div class="span-pagination">
+
+
+
+                      <!--<div class="span-pagination">
                         <nav aria-label="Page navigation">
                           <div class="pagination">
                               <a href="#">Prev</a>
@@ -137,7 +107,7 @@
                               <a href="#">Next</a>
                           </div>
                         </nav>
-                      </div>
+                      </div>-->
                   </div>
                 </div>
             </div>

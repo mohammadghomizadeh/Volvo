@@ -48,7 +48,9 @@
     transform: translate(-50%, -50%);
     text-align: center;
 }
-
+.post-content{
+    direction:rtl;
+}
 
 /* ========================================================================== */
 
@@ -3938,6 +3940,7 @@ blockquote em {
 
 .post-details p {
     margin: 10px 0px 10px 0px;
+    direction:rtl;
 }
 
 h5.post-title {
@@ -4721,12 +4724,13 @@ h3.project-info-title {
 }
 
 .btn-warning {
-    color: #fff;
+    color: #fff !important;
     background-color: #CC0023;
     border-color: #CC0023;
     transition: 0.3s;
     border-radius: 0px;
     font-size: 16px;
+    float:left;
 }
 
 .btn-warning:focus,

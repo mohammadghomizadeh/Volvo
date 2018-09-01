@@ -41,6 +41,9 @@
        <div class="main">
             <div class="section">
                 <div class="row">
+                    <?php
+                        $res = $db->run("SELECT * `content` WHERE `type` = 'serviceicon'");
+                    ?>
                       <div class="col-md-4">
                           <div class="service-box">
                               <div class="service-icon"><img src="./theme/img/master/icons/engine-2.png" alt=""></div>
