@@ -42,50 +42,23 @@
             <div class="section">
                 <div class="row">
                     <?php
-                        $res = $db->run("SELECT * `content` WHERE `type` = 'serviceicon'");
+                    $res = $db->run("SELECT * FROM `content` WHERE `type` = 'services'");
+                    foreach($res as $ros){
+                        ?>
+                        <div class="col-md-4">
+                            <div class="service-box below">
+                                <div class="service-icon"><img src="adminpanel/uploads/services/<?php echo $ros['image']; ?>" alt="">
+                                </div>
+                                <h3><?php echo $ros['title']; ?></h3>
+                                <p>
+                                    <?php echo $ros['description']; ?>
+                                </p>
+                            </div>
+                        </div>
+                        <?php
+                    }
                     ?>
-                      <div class="col-md-4">
-                          <div class="service-box">
-                              <div class="service-icon"><img src="./theme/img/master/icons/engine-2.png" alt=""></div>
-                              <h3>تعمیر و تنظیم موتور</h3>
-                              <p>ما طیف گسترده ای از خدمات را به صاحبان خودرو در شهروز سرویس ارائه می دهیم. متخصصان ما می دانند چگونه طیف وسیعی از خدمات خودرو را اداره کنند.</p>
-                          </div>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="service-box">
-                              <div class="service-icon"><img src="./theme/img/master/icons/car-repair.png" alt=""></div>
-                              <h3>تعمیرگاه ماشین</h3>
-                              <p>ما طیف گسترده ای از خدمات اتومبیل را به صاحبان خودروهای بنز، بی ام و، تویوتا، کیا، هیوندای واقع در ایران ارائه می دهیم.</p>
-                          </div>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="service-box">
-                              <div class="service-icon"><img src="./theme/img/master/icons/engine-alarms.png" alt=""></div>
-                              <h3>هشدار دهنده موتور</h3>
-                              <p>برخی اخطارها نیز وجود دارند که با وجود آن‌ها هنوز قادر به ادامه‌ی رانندگی بدون مشکل حاد هستید اما پیشنهاد می‌شود در زمانی مقتضی خودرو را برای رفع موارد اعلام شده به مرکز خدمات‌رسانی برده یا خودتان با انجام اقدامات مناسب اخطار اعلام شده را برطرف نمایید.</p>
-                          </div>
-                      </div>                      
-                      <div class="col-md-4">
-                          <div class="service-box below">
-                              <div class="service-icon"><img src="./theme/img/master/icons/lights.png" alt=""></div>
-                              <h3>ELECTRIC SYSTEM</h3>
-                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</p>
-                          </div>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="service-box below">
-                              <div class="service-icon"><img src="./theme/img/master/icons/mechanic.png" alt=""></div>
-                              <h3>MECHANICAL ASSISTANCE</h3>
-                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</p>
-                          </div>
-                      </div>
-                      <div class="col-md-4">
-                          <div class="service-box below">
-                              <div class="service-icon"><img src="./theme/img/master/icons/radiator.png" alt=""></div>
-                              <h3>RADIATOR REPAIR</h3>
-                              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</p>
-                          </div>
-                      </div>
+
                 </div>
             </div>
         </div>
