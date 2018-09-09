@@ -2,26 +2,28 @@
 
  
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
+    <!-- Indicators
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+    </ol>-->
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
-      <div class="item active">
-        <img src="./theme/img/slide/1.jpg" alt="Los Angeles" style="width:100%;">
-      </div>
+        <?php
+        $r = $db->select("content","`type` = 'slideshow'");
+        foreach($r as $rew)
+        {
 
-      <div class="item">
-        <img src="./theme/img/slide/2.jpg" alt="Chicago" style="width:100%;">
+        ?>
+      <div class="item <?php echo $rew['title']; ?>">
+        <img src="adminpanel/uploads/slideshow/<?php echo $rew['image']; ?>" alt="Los Angeles" style="width:100%;height:700px;">
       </div>
-    
-      <div class="item">
-        <img src="./theme/img/slide/3.jpg" alt="New york" style="width:100%;">
-      </div>
+        <?php
+
+        }
+        ?>
     </div>
 
     <!-- Left and right controls -->
