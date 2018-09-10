@@ -13,9 +13,11 @@ if(isset($_POST['submit'])){
     {
         if($pass == $password){
         session_start();
+        $_SESSION['login'] = "login";
             ?>
             <script>
                 window.location.replace("adminpanel/");
+                
             </script>
             <?php
 

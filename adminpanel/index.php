@@ -1,4 +1,8 @@
-
+<?php
+session_start();
+$login = $_SESSION['login'];
+if($login){
+?>
 
 <?php include('layouts/head-script.php'); ?>
 
@@ -39,6 +43,7 @@ if(isset($_GET['page']) && !empty($_GET['page']))
               <!-- /. tools -->
             </div>
             <div class="box-body">
+            
               <h5>از پنل سمت راست می توانید در سایت تغییرات لازم را اعمال کنید</h5>
               <br><h5><b>تغییرات ظاهری را به پشتیبان سایتتان بسپارید</b></h5>
               </div>
@@ -64,3 +69,11 @@ if(isset($_GET['page']) && !empty($_GET['page']))
     </div>
     <!-- ./wrapper -->
 <?php  include('layouts/footer-script.php'); ?>
+
+<?php
+}
+else
+{
+header("Location:../login.php?err=sessionfail");
+}
+?>
